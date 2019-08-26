@@ -8,9 +8,33 @@ namespace Inventory_System
 {
     class Inventory
     {
-        int damage = 0;
-        int potion = 25;
-        float gold = 0.00f;
+        private int _itemDamage = 10;
+        private int _itemDefense = 0;
+        private int _weightFromWeapon = 0;
+        private int _weightFromArmor = 0;
+        private int _weightCapacity = 45;
+        private float _gold = 0.00f;
+        private int _potions = 0;
+        private Attack_Item sword = new Attack_Item("Master Sword", 10, 3);
+        private Attack_Item sword2 = new Attack_Item("Not Master Sword", 10, 3);
+        private Attack_Item[] weapons = new Attack_Item[3];
+        public Inventory()
+        {
+            Attack_Item[] weaponBag = { sword, sword2 };
+            weapons = weaponBag;
+        }
+
+        //Returns the damage our weapons deals
+        public int GetItemDamage()
+        {
+            return _itemDamage;
+        }
+
+        //Returns the defense our armor grants
+        public int GetItemDefense()
+        {
+            return _itemDefense;
+        }
         public void Menu()
         {
             string choice = "";
@@ -60,49 +84,49 @@ namespace Inventory_System
                 choice = Console.ReadLine();
                 if (choice == "Bow")
                 {
-                    damage = 15;
+                    _itemDamage = 15;
                 }
                 else if (choice == "Sword")
                 {
-                    damage = 20;
+                    _itemDamage = 20;
                 }
                 else if (choice == "Hammer")
                 {
-                    damage = 30;
+                    _itemDamage = 30;
                 }
                 else if (choice == "Battleaxe")
                 {
-                    damage = 40;
+                    _itemDamage = 40;
                 }
 
                 Console.WriteLine("Equipped a " + choice + "!");
-                Console.WriteLine("Damage: " + damage);
+                Console.WriteLine("Damage: " + _itemDamage);
             }
         }
         public void UnEquipWeapon()
         {
             Console.WriteLine("Unequipped a weapon!");
-            damage = 10;
-            Console.WriteLine("Damage: " + damage);
+            _itemDamage = 10;
+            Console.WriteLine("Damage: " + _itemDamage);
 
         }
         public void AddGold(float amount)
         {
             Console.WriteLine("Got " + amount + " gold!");
-            gold += amount;
-            Console.WriteLine("Damage: " + damage);
+            _gold += amount;
+            Console.WriteLine("Damage: " + _itemDamage);
         }
         public void SubtractGold(float amount)
         {
             Console.WriteLine("Lost " + amount + " gold!");
-            gold -= amount;
-            Console.WriteLine("Damage: " + damage);
+            _gold -= amount;
+            Console.WriteLine("Damage: " + _itemDamage);
         }
 
         public void BuyPotion(float amount)
         {
             Console.WriteLine("Want an overall boost potion?");
-            gold -= amount;
+            _gold -= amount;
 
         }
     }
