@@ -10,6 +10,24 @@ namespace Inventory_System
     {
         static void Main(string[] args)
         {
+            Monster Vegeta = new Monster("Vegeta", 100, 50);
+            Monster Buu = new Monster("Buu", 100, 50);
+            Monster Cell = new Monster("Cell", 100, 50);
+            Monster Omega = new Monster("Omega", 100, 50);
+
+            Cell.Print();
+            Buu.Print();
+
+            Monster[] team1 = { Vegeta, Buu };
+            Monster[] team2 = { Cell, Omega };
+
+            Encounter encounter = new Encounter(team1, team2);
+            encounter.Print();
+            encounter.BeginRound();
+
+            Console.ReadKey();
+            return;
+
             //Inventory inventory = new Inventory();
             //inventory.Menu();
             string name = "";
