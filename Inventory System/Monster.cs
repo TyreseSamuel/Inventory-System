@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inventory_System
 {
-    class Monster
+    class Monster : Creature
     {
         private string _name = "Kneegrow";
         private int _health = 100;
@@ -24,7 +24,7 @@ namespace Inventory_System
             return _name;
         }
 
-        public int GetDamage()
+        public override int GetDamage()
         {
             return _damage;
         }
@@ -64,13 +64,18 @@ namespace Inventory_System
             Console.WriteLine(GetName() + "attacks! " + target.GetName() + " takes " + damage);
         }
 
-        public void Fight(Monster[] targets)
+        public void Fight(Creature[] targets)
         {
             if (Health <= 0)
             {
                 return;
             }
 
+            Random random = new Random();
+            int choice = random.Next(0, targets.Length - 1);
+            Fight(targets[choice]);
+
+            /*
             bool validInput = false;
             while (!validInput)
             {
@@ -89,6 +94,7 @@ namespace Inventory_System
                     Fight(targets[choice]);
                 }
             }
+            */
         }
     }
 }

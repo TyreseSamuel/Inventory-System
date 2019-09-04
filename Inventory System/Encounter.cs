@@ -8,8 +8,8 @@ namespace Inventory_System
 {
     class Encounter
     {
-        private Monster[] _goodMonsters;
-        private Monster[] _badMonsters;
+        private Creature[] _goodMonsters;
+        private Creature[] _badMonsters;
 
         public Encounter(Monster[] team1, Monster[] team2)
         {
@@ -22,13 +22,13 @@ namespace Inventory_System
             //goodMonsters
             for (int i = 0; i < _goodMonsters.Length; i++)
             {
-                Monster currentMonster = _goodMonsters[i];
+                Creature currentMonster = _goodMonsters[i];
                 currentMonster.Print();
             }
             //badMonsters
             for (int i = 0; i < _badMonsters.Length; i++)
             {
-                Monster currentMonster = _badMonsters[i];
+                Creature currentMonster = _badMonsters[i];
                 currentMonster.Print();
             }
         }
@@ -36,12 +36,12 @@ namespace Inventory_System
         {
             for (int i = 0; i < _goodMonsters.Length; i++)
             {
-                Monster currentMonster = _goodMonsters[i];
+                Creature currentMonster = _goodMonsters[i];
                 currentMonster.Fight(_badMonsters[0]);
             }
             for (int i = 0; i < _badMonsters.Length; i++)
             {
-                Monster currentMonster = _badMonsters[1];
+                Creature currentMonster = _badMonsters[1];
                 currentMonster.Fight(_goodMonsters[0]);
             }
         }
@@ -55,7 +55,7 @@ namespace Inventory_System
                 bool goodIsAlive = true;
                 for (int i = 0; i < _goodMonsters.Length; i++)
                 {
-                    Monster currentMonster = _goodMonsters[i];
+                    Creature currentMonster = _goodMonsters[i];
                     if (currentMonster.Health > 0)
                     {
                         goodIsAlive = true;
@@ -69,7 +69,7 @@ namespace Inventory_System
                 bool badIsAlive = true;
                 for (int i = 0; i < _badMonsters.Length; i++)
                 {
-                    Monster currentMonster = _badMonsters[i];
+                    Creature currentMonster = _badMonsters[i];
                     if (currentMonster.Health > 0)
                     {
                         badIsAlive = true;
