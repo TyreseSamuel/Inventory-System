@@ -14,7 +14,6 @@ namespace Inventory_System
         private int _south;
         private int _east;
         private int _west;
-        private string _hidden;
 
         public Scene(string name, int northID, int southID, int eastID, int westID, string description)
         {
@@ -24,7 +23,6 @@ namespace Inventory_System
             _south = southID;
             _east = eastID;
             _west = westID;
-            _hidden = "Nothing was found";
         }
         public string GetName()
         {
